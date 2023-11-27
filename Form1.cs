@@ -13,10 +13,8 @@ using static WindowsFormsApp1.Form1;
 
 namespace WindowsFormsApp1
 {
-
     public partial class Form1 : Form
     {
-
         public class Production
         {
             public Fact Target { get; set; }
@@ -88,8 +86,6 @@ namespace WindowsFormsApp1
         string factsFilePath = "facts.txt";
         string prodFilePath = "prod.txt";
 
-        
-
         public Form1()
         {
             InitializeComponent();
@@ -101,94 +97,6 @@ namespace WindowsFormsApp1
         {
 
         }
-
-
-        //void readFile(string factsFilePath, string prodFilePath)
-        //{
-        //    try
-        //    {
-        //        // Считываем все строки из файла
-        //        string[] lines = File.ReadAllLines(factsFilePath);
-
-        //        // Обрабатываем каждую строку
-        //        foreach (string line in lines)
-        //        {
-        //            // Разделяем строку на ключ и значение
-        //            string[] parts = line.Split(':');
-
-        //            // Проверяем, что строка содержит корректные данные
-        //            if (parts.Length == 2)
-        //            {
-        //                string key = parts[0].Trim();
-        //                string value = parts[1].Trim();
-
-        //                all_facts.Add(new Fact(key, value));
-
-        //                // Добавляем данные в словарь
-        //                facts[key] = value;
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("Ошибка при чтении строки: " + line);
-        //            }
-        //        }
-
-        //        // Считываем все строки из файла
-        //        string[] lines_prod = File.ReadAllLines(prodFilePath);
-
-        //        // Обрабатываем каждую строку
-        //        foreach (string line in lines_prod)
-        //        {
-        //            // Разделяем строку на ключ и значение
-        //            string[] parts = line.Split('>');
-
-
-        //            string key = parts[0].Trim();
-        //            string value = parts[1].Trim();
-
-        //            // Добавляем данные в словарь
-        //            prod[key] = value;
-        //            //TextBox2.Text += key + "->" + value + " | ";
-        //            HashSet<Fact> fcts = new HashSet<Fact>();
-        //            foreach (string s in key.Split(','))
-        //            {
-        //                fcts.Add(new Fact(s, facts[s]));
-        //            }
-        //            all_prods.Add(new Production(new Fact(value, facts[value]), fcts));
-
-        //            //// Проверяем, что строка содержит корректные данные
-        //            //if (parts.Length == 2)
-        //            //{
-        //            //    string key = parts[0].Trim();
-        //            //    string value = parts[1].Trim();
-
-        //            //    // Добавляем данные в словарь
-        //            //    prod[key] = value;
-        //            //    //TextBox2.Text += key + "->" + value + " | ";
-        //            //    HashSet<Fact> fcts = new HashSet<Fact>();
-        //            //    foreach (string s in key.Split(','))
-        //            //    {
-        //            //        fcts.Add(new Fact(s, facts[s]));
-        //            //    }
-        //            //    all_prods.Add(new Production(new Fact(value, facts[value]), fcts));
-        //            //}
-        //            //else
-        //            //{
-        //            //    Console.WriteLine("Ошибка при чтении строки: " + line);
-        //            //}
-        //        }
-
-        //        //// Выводим данные словаря на экран
-        //        //foreach (KeyValuePair<string, string> item in data)
-        //        //{
-        //        //    Console.WriteLine("Ключ: " + item.Key + ", Значение: " + item.Value);
-        //        //}
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Ошибка при чтении файла: " + ex.Message);
-        //    }
-        //}
 
         void readFile(string factsFilePath, string prodFilePath)
         {
@@ -235,95 +143,18 @@ namespace WindowsFormsApp1
 
                         // Добавляем данные в словарь
                         prod[key] = value;
-                        //TextBox2.Text += key + "->" + value + " | ";
                     }
                     else
                     {
                         Console.WriteLine("Ошибка при чтении строки: " + line);
                     }
                 }
-
-                //// Выводим данные словаря на экран
-                //foreach (KeyValuePair<string, string> item in data)
-                //{
-                //    Console.WriteLine("Ключ: " + item.Key + ", Значение: " + item.Value);
-                //}
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Ошибка при чтении файла: " + ex.Message);
             }
         }
-
-        //void directOutput()
-        //{
-        //    readFile(factsFilePath, prodFilePath);
-        //    //textBox1.Text += "reading file\n";
-        //    for (int i = 0; i <  checkedListBox1.CheckedItems.Count; i++)
-        //    {
-        //        //textBox1.Text += "checking " + i.ToString() + " CheckedItems\n";
-        //        string film_id = (checkedListBox1.CheckedItems[i] as string).Split(':')[0];
-        //        axioms.Add(film_id);
-        //        //textBox1.Text += " film_id = " + film_id + " ";
-        //        //textBox1.Text += " prod.Count.ToString() = " + prod.Count.ToString();
-        //        //textBox1.Text += " facts.Count.ToString() = " + facts.Count.ToString();
-        //        foreach (KeyValuePair<string, string> item in prod)
-        //        {
-        //            //textBox1.Text += item.Key + " " + item.Value + " | ";
-        //            if (item.Value == film_id)
-        //            {
-        //                textBox1.Text += " " + film_id + " -> axioms: ";
-        //                foreach (string it in item.Key.Split(','))
-        //                {
-        //                    if (!axioms.Contains(it))
-        //                    {
-        //                        axioms.Add(it);
-        //                        textBox1.Text += facts[it] + ", ";
-        //                    }
-
-        //                }
-
-        //                //break;
-        //                //List<string> new_axioms = item.Key.Split(',');
-        //            }
-        //        }
-        //        textBox1.Text += Environment.NewLine;
-        //    }
-
-        //    int countAxioms = axioms.Count; // кооличесво аксиом до начала цикла
-        //    while (true)
-        //    {
-        //        foreach (KeyValuePair<string, string> item in prod) // проход по всем продукциям файла
-        //        {
-        //            bool isNewAxiom = true; // пробуем вывести новый факт
-        //            foreach (string it in item.Key.Split(',')) // проходим по всем файктам продукции
-        //            {
-        //                if (!axioms.Contains(it)) // если какой-то из фактов еще не доказан, то не подойдет
-        //                {
-        //                    isNewAxiom = false;
-        //                    break;
-        //                }
-        //            }
-        //            if (isNewAxiom && !axioms.Contains(item.Value)) // если все факты доказаны и такая аксиома еще не выведена
-        //            {
-        //                axioms.Add(item.Value); // добавляем новый факт в аксиомы
-        //                textBox1.Text += Environment.NewLine;
-        //                foreach (string it in item.Key.Split(','))
-        //                {
-        //                    if (it.Length > 0)
-        //                    {
-        //                        textBox1.Text += facts[it] + ',';  // из каких аксиом вывелся новый факт
-        //                    }
-        //                }
-        //                textBox1.Text += " -> " + facts[item.Value]; // новый факт
-        //            }
-        //        }
-
-        //        if (axioms.Count == countAxioms) // если количество аксиом не изменилось, то всё
-        //            break;
-        //        countAxioms = axioms.Count; // иначе новая итерация
-        //    }
-        //}
 
         void directOutput()
         {
@@ -423,7 +254,6 @@ namespace WindowsFormsApp1
                     {
                         bool isSupersetOf = true;
 
-                        //(provedFacts.IsSupersetOf(production.Facts))
                         HashSet<string> names = new HashSet<string>();
                         foreach (Fact f in provedFacts)
                         {
@@ -477,7 +307,6 @@ namespace WindowsFormsApp1
 
         public bool mySolveBack(string goal)
         {
-            
             List<string> nesses = new List<string>();
             nesses.Add(goal);
             foreach(string s in prod.First(x => x.Value == goal).Key.Split(','))
@@ -499,11 +328,6 @@ namespace WindowsFormsApp1
                         {
                             axioms.Add(it);
                             new_string += facts[it] + ", ";
-                            //if (!axioms.Contains(it))
-                            //{
-                            //    axioms.Add(it);
-                            //    new_string += facts[it] + ", ";
-                            //}
 
                         }
                         foreach(string s in nesses)
@@ -517,7 +341,6 @@ namespace WindowsFormsApp1
                         break;
                     }
                 }
-                //textBox1.Text += Environment.NewLine;
             }
 
             int countAxioms = axioms.Count;
@@ -593,19 +416,10 @@ namespace WindowsFormsApp1
                             provedFacts.Add(n_fct);
                         }
                         Productions.Add(new Production(new Fact(item.Value, facts[item.Value]), fcts));
-                        //Productions.Add(new Production(item.Key, item.Value));
                     }
                         
                 }
-            }
-
-            //string goal = checkedListBox2.CheckedItems[0].ToString();
-            //string goal = checkedListBox2.CheckedItems[0].ToString().Split(':')[0];
-
-
-
-
-            //bool result = SolveBackwardIterative(all_prods, provedFacts, new Fact(goal, facts[goal]));
+            } 
             bool result = mySolveBack(goal);
 
             if (result)
@@ -613,13 +427,6 @@ namespace WindowsFormsApp1
                 textBox2.Text += "Доказан факт " + facts[goal];
                 textBox2.Text += Environment.NewLine;
                 textBox1.Text = "";
-                //axioms = new HashSet<string>();
-                //facts = new Dictionary<string, string>();
-                //prod = new Dictionary<string, string>();
-                //Productions = new HashSet<Production>();
-                //provedFacts = new HashSet<Fact>();
-                //directOutput();
-
                 textBox1.Text += stack.Count.ToString();
                 textBox1.Text += Environment.NewLine;
                 while (stack.Count > 0)
@@ -636,8 +443,6 @@ namespace WindowsFormsApp1
             }
         }
 
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -652,7 +457,6 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
             textBox2.Text = "";
             for (int i = 0; i < checkedListBox2.CheckedItems.Count; i++)
             {
@@ -665,7 +469,6 @@ namespace WindowsFormsApp1
                 string goal = checkedListBox2.CheckedItems[i].ToString().Split(':')[0];
                 backOut(goal);
             }
-            
         }
 
         private void label1_Click(object sender, EventArgs e)
